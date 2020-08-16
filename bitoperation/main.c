@@ -1,9 +1,8 @@
 #include <stdio.h>
 
-
 int main(){
 	allByte();
-	changeBit();
+	changeByte();
 	return 0;
 
 }
