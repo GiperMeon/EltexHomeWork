@@ -12,8 +12,6 @@ int main(){
 	};
 	unsigned char sName[N];
 	struct abonent subdir[M];
-	struct abonent *next;
-	struct abonent *begin;
 	char *str;
 	char tempID[4];
 	int numID;
@@ -52,11 +50,11 @@ int main(){
 					}
 					if( count > 0 ){
 
-						printf("%d ", subdir[search].id);
+						printf("%d	", subdir[search].id);
 						for(int j = 0; j < N; j++){
         	                                        printf("%c", subdir[search].name[j]);
 						} 
-                        	                printf(" ");
+                        	                printf("	");
                                 	        for(int j = 0; j < N; j++){
                                                	 	printf("%c", subdir[search].phone[j]);
                                        		}
@@ -67,15 +65,14 @@ int main(){
 					
 				break;
 			case '3':
+				printf("ID	Name	Phone\n");
 				for(int i = 0; i < all; i++){
-					printf("%d ", subdir[i].id);
+					printf("%d	", subdir[i].id);
 					for(int j = 0; j < N; j++){
-						//if(sibdir[i].name[j]==0)
 						printf("%c", subdir[i].name[j]);
 					} 
-					printf(" ");
+					printf("	");
 					for(int j = 0; j < N; j++){
-						//if(sibdir[i].name[j]==0)
 						printf("%c", subdir[i].phone[j]);
 					}
 					printf("\n");
@@ -86,23 +83,13 @@ int main(){
 				printf("Enter ID contacts\n");
 				gets(tempID);
 				numID = atoi(str);
-				/*for(int j =0; j<N; j++){
-                                                //if(sibdir[i].name[j]==0)
-                                        subdir[numID].name[j] = (char)0;
-                                }
-                                for(int j =0; j < P; j++){
-                                                //if(sibdir[i].name[j]==0)
-                                        subdir[numID].phone[j] = (char)0;
-                                }*/
 				for(int i = numID; i<all-1; i++){
 					
 					for(int j =0; j<N; j++){
-                                                //if(sibdir[i].name[j]==0)
                                         	subdir[i].name[j] = subdir[i+1].name[j];
                                 	}
 					
 					for(int j =0; j<N; j++){
-                                                //if(sibdir[i].name[j]==0)
                                         	subdir[i].phone[j] = subdir[i+1].phone[j];
                                 	}
 					subdir[i].id = subdir[i+1].id-1;
